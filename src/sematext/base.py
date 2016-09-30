@@ -77,8 +77,8 @@ class Api(
             log_s = appier.legacy.bytes(log_s, encoding = "utf-8")
             buffer.append(header_s)
             buffer.append(log_s)
-        data_j = b"\n".join(buffer)
-        contents = self.post(url, data = data_j)
+        data = b"\n".join(buffer)
+        contents = self.post(url, data = data)
         return contents
 
     def _build_url(self):
