@@ -61,15 +61,24 @@ class Api(
         contents = self.post(url, data_j = payload)
         return contents
 
-    def log_bulk(self, logs):
+    def log_bulk(self, type, logs):
         url = self.base_url + "_bulk"
         buffer = []
+        header = {
+            "index" : {
+                "_index" : self.token,
+                "_type" : type
+            }
+        }
+        header_s = json.dumps(header)
+        header_s = appier.legacy.bytes(header_s, encoding = "utf-8")
         for log in logs:
             log_s = json.dumps(log)
             log_s = appier.legacy.bytes(log_s, encoding = "utf-8")
+            buffer.append(header_s)
             buffer.append(log_s)
-        data_j = b"\n".join()
-        contents = self.post(url, data_j = data_j)
+        data_j = b"\n".join(buffer)
+        contents = self.post(url, data = data_j)
         return contents
 
     def _build_url(self):
