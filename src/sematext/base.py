@@ -56,12 +56,12 @@ class Api(
         self.token = kwargs.get("token", self.token)
         self._build_url()
 
-    def log(self, type, payload):
+    def log(self, type, payload, silent = True):
         url = self.token_url + type
-        contents = self.post(url, data_j = payload)
+        contents = self.post(url, data_j = payload, silent = silent)
         return contents
 
-    def log_bulk(self, type, logs):
+    def log_bulk(self, type, logs, silent = True):
         url = self.base_url + "_bulk"
         buffer = []
         header = {
@@ -78,7 +78,7 @@ class Api(
             buffer.append(header_s)
             buffer.append(log_s)
         data = b"\n".join(buffer)
-        contents = self.post(url, data = data)
+        contents = self.post(url, data = data, silent = silent)
         return contents
 
     def _build_url(self):
