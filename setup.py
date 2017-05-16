@@ -48,7 +48,7 @@ setuptools.setup(
     description = "Sematext API Client",
     license = "Apache License, Version 2.0",
     keywords = "sematext api",
-    url = "http://sematext_api.hive.pt",
+    url = "http://sematext-api.hive.pt",
     zip_safe = False,
     packages = [
         "sematext"
