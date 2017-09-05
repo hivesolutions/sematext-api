@@ -45,12 +45,12 @@ BASE_URL = "https://logsene-receiver.sematext.com/"
 """ The default base url to be used when no other
 base url value is provided to the constructor """
 
-class Api(
-    appier.Api
+class API(
+    appier.API
 ):
 
     def __init__(self, *args, **kwargs):
-        appier.Api.__init__(self, *args, **kwargs)
+        appier.API.__init__(self, *args, **kwargs)
         self.token = appier.conf("SEMATEXT_TOKEN", None)
         self.base_url = kwargs.get("base_url", BASE_URL)
         self.token = kwargs.get("token", self.token)
