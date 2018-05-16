@@ -2,6 +2,10 @@
 
 Python API client for Sematext.
 
+## Configuration
+
+* `SEMATEXT_TOKEN` (`str`) - The secret token to be for authentication on the Sematext API (defaults to `None`)
+
 ## License
 
 Sematext API is currently licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/).
