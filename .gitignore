@@ -5,4 +5,4 @@ session.shelve*
 
 /dist
 /build
-/src/sematext-api.egg-info
+/src/sematext_api.egg-info
